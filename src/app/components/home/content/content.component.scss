@@ -1,0 +1,16 @@
+@use '../../../styles/variables.scss' as *;
+
+.content-container {
+  width: 100%;
+}
+
+.content-content {
+  margin: auto;
+  width: $content-width;
+  height: 100vh;
+  padding: 3.75rem;
+  display: flex;
+  align-items: center;
+  gap: 3.75rem;
+  background-color: greenyellow;
+}
