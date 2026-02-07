@@ -1,15 +1,17 @@
 // @ts-check
-const eslint = require("@eslint/js");
-const tseslint = require("typescript-eslint");
-const angular = require("angular-eslint");
-const prettierPlugin = require("eslint-plugin-prettier");
-const prettierConfig = require("eslint-config-prettier");
+const eslint = require('@eslint/js');
+const tseslint = require('typescript-eslint');
+const angular = require('angular-eslint');
+const prettierPlugin = require('eslint-plugin-prettier');
+const prettierConfig = require('eslint-config-prettier');
+const ngrx = require('@ngrx/eslint-plugin/v9');
 
 module.exports = tseslint.config(
   {
-    files: ["**/*.ts"],
+    files: ['**/*.ts'],
     extends: [
       eslint.configs.recommended,
+      ...ngrx.configs.allTypeChecked,
       ...tseslint.configs.recommended,
       ...tseslint.configs.stylistic,
       ...angular.configs.tsRecommended,
@@ -20,28 +22,35 @@ module.exports = tseslint.config(
     },
     processor: angular.processInlineTemplates,
     rules: {
-      "@angular-eslint/directive-selector": [
-        "error",
+      '@angular-eslint/directive-selector': [
+        'error',
         {
-          type: "attribute",
-          prefix: "app",
-          style: "camelCase",
+          type: 'attribute',
+          prefix: 'app',
+          style: 'camelCase',
         },
       ],
-      "@angular-eslint/component-selector": [
-        "error",
+      '@angular-eslint/component-selector': [
+        'error',
         {
-          type: "element",
-          prefix: "app",
-          style: "kebab-case",
+          type: 'element',
+          prefix: 'app',
+          style: 'kebab-case',
         },
       ],
-      "prettier/prettier": "error", // Enforce Prettier formatting as lint errors
-      "@typescript-eslint/no-explicit-any": "error", // Forbid usage of 'any'
+      'prettier/prettier': 'error', // Enforce Prettier formatting as lint errors
+      '@typescript-eslint/no-explicit-any': 'error', // Forbid usage of 'any'
     },
   },
   {
-    files: ["**/*.html"],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+      },
+    },
+  },
+  {
+    files: ['**/*.html'],
     extends: [
       ...angular.configs.templateRecommended,
       ...angular.configs.templateAccessibility,
