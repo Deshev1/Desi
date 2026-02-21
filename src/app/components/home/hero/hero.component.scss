@@ -25,19 +25,34 @@
   background: rgba(0, 0, 0, 0.4); /* adjust darkness here */
 }
 
+.hero-heading {
+  font-size: 5rem;
+  color: $content-background-color;
+  line-height: 5rem;
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
   margin: auto;
+
   width: $content-width;
   height: 100vh;
-  padding: 3.75rem;
+  padding: $content-padding;
+
   display: flex;
   align-items: center;
-  gap: 3.75rem;
+  gap: 3.5rem;
 }
 
-.main-title {
-  font-size: 5rem;
-  color: $content-background-color;
+.hero-content-left {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cta-btns {
+  display: flex;
+  gap: 1rem;
 }

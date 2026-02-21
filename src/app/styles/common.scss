@@ -1,0 +1,17 @@
+@use '../styles/variables.scss' as *;
+
+.btn {
+  height: $btn-height;
+  width: $btn-width;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: $secondary-color;
+}
+
+.btn-secondary {
+  background-color: $content-background-color;
+  border: 3px solid $secondary-color;
+}
