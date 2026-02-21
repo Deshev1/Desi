@@ -27,8 +27,9 @@
 
 .hero-heading {
   font-size: 5rem;
-  color: $content-background-color;
   line-height: 5rem;
+  font-weight: 800;
+  text-shadow: $text-highlight-shadow;
 }
 
 .hero-content {
@@ -39,6 +40,7 @@
   width: $content-width;
   height: 100vh;
   padding: $content-padding;
+  padding-top: calc($content-padding + $header-wrapper-height);
 
   display: flex;
   align-items: center;
@@ -52,7 +54,73 @@
   gap: 2rem;
 }
 
+.hero-content-right {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+
+  > :first-child {
+    position: relative;
+    transform: translatex(2rem);
+
+    &::before {
+      position: absolute;
+      content: 'къде?';
+      top: 0;
+      left: 0;
+      color: $content-background-color;
+      font-size: 1.5rem;
+      text-shadow: $text-highlight-shadow;
+    }
+
+    p {
+      transform: translatex(0rem);
+    }
+  }
+
+  > :last-child {
+    transform: translateX(-2rem);
+
+    &::before {
+      position: absolute;
+      content: 'за колко?';
+      top: 0;
+      right: 0;
+      color: $content-background-color;
+      font-size: 1.5rem;
+      text-shadow: $text-highlight-shadow;
+    }
+
+    p {
+      transform: translatex(0rem);
+    }
+  }
+}
+
 .cta-btns {
   display: flex;
   gap: 1rem;
+}
+
+.sun {
+  background-color: $secondary-color;
+  height: 15rem;
+  width: 15rem;
+  border-radius: 100rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 3rem;
+  border: 2px solid $secondary-color_2;
+  transition: 300ms;
+
+  &:hover {
+    border: 6px solid $secondary-color_2;
+    cursor: pointer;
+  }
 }
