@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, ElementRef, inject } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { HeaderComponent } from '../../shared/header/header.component';
 import { ContentComponent } from './content/content.component';
-import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './hero/hero.component';
 
 @Component({
@@ -9,14 +9,10 @@ import { HeroComponent } from './hero/hero.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements AfterViewInit {
-  readonly el = inject(ElementRef);
+export class HomeComponent {
+  readonly isHeroVisible = signal(true);
 
-  readonly observer = new IntersectionObserver((entries) =>
-    console.info(entries),
-  );
-
-  ngAfterViewInit(): void {
-    this.observer.observe(this.el.nativeElement);
+  onHeroMovement(isVisible: boolean) {
+    this.isHeroVisible.set(isVisible);
   }
 }

@@ -1,9 +1,9 @@
 @use '../../../styles/variables.scss' as *;
 
-.hero-container {
+.hero-wrapper {
   width: 100%;
   height: 100vh;
-  background-image: url('../../../assets/images/hero-background.jpg');
+  background-image: url('../../../assets/images/test-hero-img.webp');
   background-size: cover;
 }
 
@@ -18,6 +18,6 @@
 }
 
 .main-title {
-  font-size: 10rem;
+  font-size: 5rem;
   color: white;
 }
